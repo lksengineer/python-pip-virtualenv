@@ -4,9 +4,10 @@ import charts
 
 
 def run():
+    """"Function Run"""
     data = read_csv.read_csv('data.csv')
-    data = list(filter(lambda item: item['Continent'] == 'South America', data))
-
+    data = filter(lambda item: item['Continent'] == 'South America', data)
+    data = list(data)
     countries = list(map(lambda x: x['Country'], data))
     percentages = list(map(lambda x: x['World Population Percentage'], data))
     charts.generate_pie_chart(countries, percentages)
